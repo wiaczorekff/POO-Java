@@ -1,2 +1,1 @@
-# POO-Java
-aulas de java
+Atividade 1 - gestão de estoque
