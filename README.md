@@ -1,2 +1,1 @@
-# POO-Java
-aulas de java
+Atividade de Gestão de pessoas
