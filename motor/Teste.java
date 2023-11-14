@@ -8,36 +8,46 @@ package atividade.motor;
  *
  * @author felipe.aswiaczorek
  */
-
-
 public class Teste {
     public static void main(String[] args) {
-        // Criação de veículos, cada um com seu próprio motor
-        Veiculo[] veiculos = new Veiculo[4];
+        // Criação de veículos de Passeio
+        Passeio[] passeios = {
+                new Passeio("ABC1234", "Sedan", "Azul", 200, 4, new Motor(6, 350)),
+                new Passeio("XYZ7890", "SUV", "Preto", 180, 4, new Motor(4, 250)),
+                new Passeio("DEF4567", "Hatchback", "Prata", 220, 4, new Motor(3, 210)),
+                new Passeio("GHI7894", "Caminhão", "Vermelho", 120, 6, new Motor(5, 320)),
+                new Passeio("JKL0123", "Caminhonete", "Branco", 240, 4, new Motor(8, 400))
+        };
 
-        veiculos[0] = new Veiculo("ABC1234", "Sedan", "Azul", 250, 4, new Motor(6, 350));
-        veiculos[1] = new Veiculo("XYZ7895", "SUV", "Preto", 180, 4, new Motor(4, 250));
-        veiculos[2] = new Veiculo("DEF4563", "Hatchback", "Prata", 220, 4, new Motor(3, 210));
-        veiculos[3] = new Veiculo("GHI7894", "Caminhonete", "Vermelho", 120, 6, new Motor(5, 320));
+        // Criação de veículos de Carga
+        Carga[] cargas = {
+                new Carga("MNO3456", "Caminhão", "Verde", 150, 6, new Motor(6, 300)),
+                new Carga("PQR6789", "Carreta", "Amarelo", 120, 12, new Motor(10, 500)),
+                new Carga("STU9012", "VUC", "Laranja", 130, 4, new Motor(4, 200)),
+                new Carga("VWX2345", "Reboque", "Roxo", 110, 8, new Motor(8, 350)),
+                new Carga("YZA5678", "Furgão", "Marrom", 140, 4, new Motor(6, 280))
+        };
 
-        // Impressão das informações dos veículos com um loop
-        for (int i = 0; i < veiculos.length; i++) {
-            Veiculo veiculo = veiculos[i];
+        // Teste das funcionalidades
+        System.out.println("===== veiculos de Passeios =====");
+        testeVeiculos(passeios);
 
-            System.out.println("Veiculo " + (i + 1) + " - Placa: " + veiculo.getPlaca());
-            System.out.println("       - Modelo: " + veiculo.getModelo());
-            System.out.println("       - Cor: " + veiculo.getCor());
-            System.out.println("       - Velocidade Máxima: " + veiculo.getVelocMax());
-            System.out.println("       - Quantidade de Rodas: " + veiculo.getQtdRodas());
-            System.out.println("       - Motor - Quantidade de Pistões: " + veiculo.getMotor().getQtdPist());
-            System.out.println("       - Motor - Potência: " + veiculo.getMotor().getPotencia());
+        System.out.println("===== veiculos de Cargas =====");
+        testeVeiculos(cargas);
+    }
 
-            // Bloco condicional para verificar a velocidade máxima
-            if (veiculo.getVelocMax() > 200) {
-                System.out.println("       - Veículo rápido, passsa de 200km/h!");
-            }
-
-            System.out.println(); // Linha em branco para separar informações de veículos
+    // Método para teste de funcionalidades com veículos
+    private static void testeVeiculos(Veiculo[] veiculos) {
+        for (Veiculo veiculo : veiculos) {
+            System.out.println("Placa: " + veiculo.getPlaca());
+            System.out.println("Modelo: " + veiculo.getModelo());
+            System.out.println("Cor: " + veiculo.getCor());
+            System.out.println("Velocidade Máxima (original): " + veiculo.getVelocMax() + " km/h");
+            System.out.println("Velocidade Convertida: " + veiculo.calcVel());
+            System.out.println("Quantidade de Rodas: " + veiculo.getQtdRodas());
+            System.out.println("Motor - Quantidade de Pistões: " + veiculo.getMotor().getQtdPist());
+            System.out.println("Motor - Potência: " + veiculo.getMotor().getPotencia());
+            System.out.println("===============================");
         }
     }
 }

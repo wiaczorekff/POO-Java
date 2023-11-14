@@ -26,6 +26,7 @@ public class Veiculo {
     }
 
     // Métodos getters e setters para os atributos de Veiculo
+
     public String getPlaca() {
         return placa;
     }
@@ -68,6 +69,11 @@ public class Veiculo {
 
     public Motor getMotor() {
         return motor;
+    }
+
+    // Método para calcular a velocidade convertida
+    public float calcVel() {
+        return this.velocMax; // Por padrão, não convertemos a velocidade na classe base Veiculo
     }
 }
 
